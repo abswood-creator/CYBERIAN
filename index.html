@@ -137,7 +137,7 @@
     <div class="frame">
         <model-viewer
             id="viewer"
-            src="assets/models/sharp_collapse_puzzle_000.glb"
+            src="assets/models/sharp_collapse_000.glb"
             alt="CYBERIAN Sharp Collapse Series"
             camera-controls
             auto-rotate
@@ -151,7 +151,7 @@
         <!-- Controls -->
         <div class="controls">
             <button onclick="prevFrame()">← PREV</button>
-            <span id="frame-counter" style="color: var(--cyan); min-width: 80px; text-align: center;">000 / 020</span>
+            <span id="frame-counter" style="color: var(--cyan); min-width: 80px; text-align: center;">000 / 050</span>
             <button onclick="nextFrame()">NEXT →</button>
             <button onclick="toggleAutoRotate()">AUTO</button>
         </div>
@@ -180,7 +180,7 @@
 
     <script>
         let currentFrame = 0;
-        const totalFrames = 35;
+        const totalFrames = 50;
         const viewer = document.getElementById('viewer');
         const counter = document.getElementById('frame-counter');
 
@@ -226,4 +226,3 @@
     </script>
 </body>
 </html>
-
