@@ -1,194 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CYBERIAN</title>
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBERIAN</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 
-<style>
-  :root {
-    --bg: #0A0F1F;
-    --text: #D0E0FF;
-    --dim: #6B8AB8;
-    --cyan: #00E5FF;
-    --glow: #00E5FF;
-  }
-  
-  * { box-sizing: border-box; }
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'IBM Plex Sans', sans-serif;
-    overflow-x: hidden;
-  }
+    <style>
+        :root {
+            --bg: #0A0F1F;
+            --text: #D0E0FF;
+            --dim: #6B8AB8;
+            --cyan: #00E5FF;
+            --glow: #00E5FF;
+        }
+        
+        * { box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'IBM Plex Sans', sans-serif;
+            overflow-x: hidden;
+        }
 
-  header {
-    padding: 3rem 5vw 2rem;
-    border-bottom: 1px solid rgba(107,138,184,0.2);
-    text-align: center;
-  }
+        header {
+            padding: 3rem 5vw 2rem;
+            border-bottom: 1px solid rgba(107,138,184,0.2);
+            text-align: center;
+        }
 
-  .logo {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 2.8rem;
-    font-weight: 500;
-    letter-spacing: 0.4em;
-    color: var(--text);
-    margin: 0;
-  }
+        .logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 0.4em;
+            color: var(--text);
+            margin: 0;
+        }
 
-  .tagline {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.25em;
-    color: var(--dim);
-    margin-top: 0.8rem;
-    text-transform: uppercase;
-  }
+        .tagline {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.25em;
+            color: var(--dim);
+            margin-top: 0.8rem;
+            text-transform: uppercase;
+        }
 
-  .frame {
-    position: relative;
-    margin: 2rem 5vw;
-    border: 1px solid rgba(107,138,184,0.3);
-    min-height: 68vh;
-    background: #0A0F1F;
-  }
+        .frame {
+            position: relative;
+            margin: 2rem 5vw;
+            border: 1px solid rgba(107,138,184,0.3);
+            min-height: 68vh;
+            background: #0A0F1F;
+            overflow: hidden;
+        }
 
-  model-viewer {
-    width: 100%;
-    height: 100%;
-    min-height: 68vh;
-    --poster-color: transparent;
-  }
+        model-viewer {
+            width: 100%;
+            height: 100%;
+            min-height: 68vh;
+            --poster-color: transparent;
+        }
 
-  .info {
-    margin: 2rem 5vw;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.82rem;
-    color: var(--dim);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2.5rem;
-  }
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(10, 15, 31, 0.85);
+            padding: 10px 16px;
+            border: 1px solid rgba(107,138,184,0.4);
+            border-radius: 4px;
+            z-index: 100;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+        }
 
-  .info div {
-    line-height: 1.4;
-  }
+        .controls button {
+            background: transparent;
+            color: var(--cyan);
+            border: 1px solid var(--cyan);
+            padding: 6px 14px;
+            cursor: pointer;
+            font-family: inherit;
+        }
 
-  .info strong {
-    color: var(--text);
-    display: block;
-    font-size: 0.95rem;
-  }
+        .controls button:hover {
+            background: rgba(0, 229, 255, 0.1);
+        }
 
-  footer {
-    padding: 3rem 5vw;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--dim);
-    border-top: 1px solid rgba(107,138,184,0.2);
-    text-align: center;
-  }
-</style>
+        .info {
+            margin: 2rem 5vw;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--dim);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+        }
+
+        .info div {
+            line-height: 1.4;
+        }
+
+        .info strong {
+            color: var(--text);
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            padding: 3rem 5vw;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--dim);
+            border-top: 1px solid rgba(107,138,184,0.2);
+            text-align: center;
+        }
+    </style>
 </head>
-
-<script>
-  let currentFrame = 0;
-  const totalFrames = 20; // match your export
-  const viewer = document.getElementById('viewer');
-
-  function loadFrame(n) {
-    currentFrame = Math.max(0, Math.min(totalFrames, n));
-    const padded = String(currentFrame).padStart(3, '0');
-    viewer.src = `assets/models/sharp_collapse_${padded}.glb`;
-    document.getElementById('frame-counter').textContent = `${padded} / ${String(totalFrames).padStart(3, '0')}`;
-  }
-
-  function nextFrame() { loadFrame(currentFrame + 1); }
-  function prevFrame() { loadFrame(currentFrame - 1); }
-
-  function toggleAutoRotate() {
-    if (viewer.hasAttribute('auto-rotate')) {
-      viewer.removeAttribute('auto-rotate');
-    } else {
-      viewer.setAttribute('auto-rotate', '');
-    }
-  }
-
-  // Keyboard support
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') nextFrame();
-    if (e.key === 'ArrowLeft') prevFrame();
-  });
-
-  // Load first frame on start
-  window.addEventListener('load', () => loadFrame(0));
-</script>
-  
 <body>
 
-  <header>
-    <h1 class="logo">CYBERIAN</h1>
-    <p class="tagline">cold geometry • luminous noise • forbidden signals</p>
-  </header>
+    <header>
+        <h1 class="logo">CYBERIAN</h1>
+        <p class="tagline">cold geometry • luminous noise • forbidden signals</p>
+    </header>
 
-<div class="frame">
-  <model-viewer
-    id="viewer"
-    src="assets/models/sharp_collapse_000.glb"   <!-- default starting model -->
-    alt="CYBERIAN Sharp Collapse"
-    camera-controls
-    auto-rotate
-    autoplay
-    shadow-intensity="1.2"
-    exposure="0.8"
-    environment-intensity="0.4"
-    environment-image="neutral"
-    animation-name="collapse"   <!-- if your future models have animations -->
-  >
-    <!-- Optional: UI controls for sequence -->
-    <div class="controls" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10;">
-      <button onclick="prevFrame()">← Prev</button>
-      <span id="frame-counter" style="color: var(--cyan); font-family: monospace; padding: 8px 16px; background: rgba(10,15,31,0.8);">000 / 020</span>
-      <button onclick="nextFrame()">Next →</button>
-      <button onclick="toggleAutoRotate()">Auto-rotate</button>
-    </div>
-  </model-viewer>
-</div>
+    <div class="frame">
+        <model-viewer
+            id="viewer"
+            src="assets/models/sharp_collapse_000.glb"
+            alt="CYBERIAN Sharp Collapse Series"
+            camera-controls
+            auto-rotate
+            autoplay
+            shadow-intensity="1.2"
+            exposure="0.8"
+            environment-intensity="0.4"
+            environment-image="neutral">
+        </model-viewer>
 
-  <div class="info">
-    <div>
-      <strong>TRANSMISSION 001</strong>
-      Sharp Collapse Series<br>
-      .GLB • Trimesh
+        <!-- Controls -->
+        <div class="controls">
+            <button onclick="prevFrame()">← PREV</button>
+            <span id="frame-counter" style="color: var(--cyan); min-width: 80px; text-align: center;">000 / 020</span>
+            <button onclick="nextFrame()">NEXT →</button>
+            <button onclick="toggleAutoRotate()">AUTO</button>
+        </div>
     </div>
-    <div>
-      <strong>FORMAT</strong>
-      Procedural • Minimal • Cold
-    </div>
-    <div>
-      <strong>CATEGORY</strong>
-      3D • Geometry • Digital Artifact
-    </div>
-  </div>
 
-  <footer>
-    CYBERIAN • Archive of cold beauty<br>
-    3D • Music • Code • Poetry
-  </footer>
+    <div class="info">
+        <div>
+            <strong>TRANSMISSION 001</strong>
+            Sharp Collapse Series<br>
+            .GLB • Trimesh
+        </div>
+        <div>
+            <strong>FORMAT</strong>
+            Procedural • Minimal • Cold
+        </div>
+        <div>
+            <strong>CATEGORY</strong>
+            3D • Geometry • Digital Artifact
+        </div>
+    </div>
 
-  <script>
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const v = document.getElementById('viewer');
-      v.removeAttribute('auto-rotate');
-      v.removeAttribute('autoplay');
-    }
-  </script>
+    <footer>
+        CYBERIAN • Archive of cold beauty<br>
+        3D • Music • Code • Poetry
+    </footer>
+
+    <script>
+        let currentFrame = 0;
+        const totalFrames = 20;
+        const viewer = document.getElementById('viewer');
+        const counter = document.getElementById('frame-counter');
+
+        function loadFrame(n) {
+            currentFrame = Math.max(0, Math.min(totalFrames, n));
+            const padded = String(currentFrame).padStart(3, '0');
+            viewer.src = `assets/models/sharp_collapse_${padded}.glb`;
+            counter.textContent = `${padded} / ${String(totalFrames).padStart(3, '0')}`;
+        }
+
+        function nextFrame() {
+            loadFrame(currentFrame + 1);
+        }
+
+        function prevFrame() {
+            loadFrame(currentFrame - 1);
+        }
+
+        function toggleAutoRotate() {
+            if (viewer.hasAttribute('auto-rotate')) {
+                viewer.removeAttribute('auto-rotate');
+            } else {
+                viewer.setAttribute('auto-rotate', '');
+            }
+        }
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextFrame();
+            if (e.key === 'ArrowLeft') prevFrame();
+        });
+
+        // Reduced motion support
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            viewer.removeAttribute('auto-rotate');
+            viewer.removeAttribute('autoplay');
+        }
+
+        // Load first frame
+        window.addEventListener('load', () => {
+            loadFrame(0);
+        });
+    </script>
 </body>
 </html>
 
