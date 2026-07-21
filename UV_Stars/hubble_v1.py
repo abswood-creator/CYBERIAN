@@ -21,15 +21,15 @@ os.makedirs("rendered", exist_ok=True)
 
 # 9-color control points: non-linear distribution (shifted toward mid-tones)
 colors_9 = [
-    "#000000",  # Pure Black (Background)
-    "#110022",  # Deep Violet Void
-    "#7F00FF",  # Base Deep Violet (Endpoint 1)
-    "#7F22FF",
-    "#7F44FF",
-    "#7F66FF",
-    "#7F7FFF",  # Base Light Indigo (Endpoint 2)
-    "#C4C4FF",  # Soft Glow
-    "#FFFFFF"   # Star Cores
+    "#7F7FFF",  # Pure Black (Background)
+    "#7F60FF",  # Deep Violet Void
+    "#7F40FF",  # Base Deep Violet (Endpoint 1)
+    "#7F20FF",
+    "#7F10FF",
+    "#7F0AFF",
+    "#7F03FF",  # Base Light Indigo (Endpoint 2)
+    "#7F01FF",  # Soft Glow
+    "#7F00FF"   # Star Cores
 ]
 positions_9 = [0.0, 0.05, 0.15, 0.30, 0.50, 0.72, 0.88, 0.95, 1.0]
 uvmap_9 = LinearSegmentedColormap.from_list(
@@ -38,8 +38,8 @@ uvmap_9 = LinearSegmentedColormap.from_list(
 
 # 12-color control points: logarithmic weighting towards bright regions
 colors_12 = [
-    "#000000", "#0B0017", "#7F00FF", "#7F11FF", "#7F22FF", "#7F38FF",
-    "#7F4FFF", "#7F66FF", "#7F7FFF", "#A3A3FF", "#D9D9FF", "#FFFFFF"
+    "#7F7FFF", "#7F7DFF", "#7FF0FF", "#7F75FF", "#7F70FF", "#7F60FF",
+    "#7F55FF", "#7F50FF", "#7F05FF", "#7F03FF", "#7F01FF", "#7F00FF"
 ]
 positions_12 = [0.0, 0.03, 0.08, 0.15, 0.25, 0.38, 0.53, 0.70, 0.82, 0.90, 0.96, 1.0]
 uvmap_12 = LinearSegmentedColormap.from_list(
@@ -48,9 +48,9 @@ uvmap_12 = LinearSegmentedColormap.from_list(
 
 # 16-color ultra-smooth palette
 colors_16 = [
-    "#000000", "#080010", "#7F00FF", "#7F0EFF", "#7F1CFF", "#7F2AFF",
-    "#7F3AFF", "#7F4AFF", "#7F5CFF", "#7F6EFF", "#7F7FFF", "#9999FF",
-    "#B2B2FF", "#CCCCCC", "#E5E5FF", "#FFFFFF"
+    "#7F7FFF", "#7F6FFF", "#7F5FFF", "#7F5AFF", "#7F57FF", "#7F55FF",
+    "#7F51FF", "#7F1FFF", "#7F1AFF", "#7F17FF", "#7F15FF", "#7F11FF",
+    "#7F11FF", "#7F11FF", "#7F10FF", "#7F00FF"
 ]
 positions_16 = [
     0.00, 0.02, 0.05, 0.09, 0.14, 0.21, 0.30, 0.41,
@@ -150,9 +150,9 @@ def process_hubble_image_advanced(image):
 # ---------------------------------------
 # Batch Processing Settings
 # ---------------------------------------
-START_PAGE = 2    # Start on page 2 since you already did page 1!
-END_PAGE = 5      # How many pages total you want to run
-PAGE_SIZE = 10    # 10 observations per batch
+START_PAGE = 1    # Start on page 2 since you already did page 1!
+END_PAGE = 2      # How many pages total you want to run
+PAGE_SIZE = 200    # 10 observations per batch
 
 for current_page in range(START_PAGE, END_PAGE + 1):
     print(f"\n==========================================")
