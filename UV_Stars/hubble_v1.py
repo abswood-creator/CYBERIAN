@@ -21,15 +21,15 @@ os.makedirs("rendered", exist_ok=True)
 
 # 9-color control points: non-linear distribution (shifted toward mid-tones)
 colors_9 = [
-    "#000000",  # Pure Black (Background)
-    "#110022",  # Deep Violet Void
-    "#7F00FF",  # Base Deep Violet (Endpoint 1)
-    "#7F22FF",
-    "#7F44FF",
-    "#7F66FF",
-    "#7F7FFF",  # Base Light Indigo (Endpoint 2)
-    "#C4C4FF",  # Soft Glow
-    "#FFFFFF"   # Star Cores
+    "#7F00FF",  # Pure Black (Background)
+    "#5F00FF",  # Deep Violet Void
+    "#3F00FF",  # Base Deep Violet (Endpoint 1)
+    "#0000FF",
+    "#5F5FFF",
+    "#AFAFFF",
+    "#FFFFFF",  # Base Light Indigo (Endpoint 2)
+    "#7FFFFF",  # Soft Glow
+    "#00FFFF"   # Star Cores
 ]
 positions_9 = [0.0, 0.05, 0.15, 0.30, 0.50, 0.72, 0.88, 0.95, 1.0]
 uvmap_9 = LinearSegmentedColormap.from_list(
@@ -64,7 +64,7 @@ uvmap_16 = LinearSegmentedColormap.from_list(
 #   "9"  = high mid-tone structure
 #   "12" = focused on bright stars and nebular cores
 #   "16" = maximum smooth dynamic range
-COLORMAP_CHOICE = "16"
+COLORMAP_CHOICE = "9"
 uvmap = {"9": uvmap_9, "12": uvmap_12, "16": uvmap_16}[COLORMAP_CHOICE]
 
 # ---------------------------------------
@@ -150,8 +150,8 @@ def process_hubble_image_advanced(image):
 # ---------------------------------------
 # Batch Processing Settings
 # ---------------------------------------
-START_PAGE = 1    # Start on page 2 since you already did page 1!
-END_PAGE = 2      # How many pages total you want to run
+START_PAGE = 3    # Start on page 2 since you already did page 1!
+END_PAGE = 4      # How many pages total you want to run
 PAGE_SIZE = 12    # 10 observations per batch
 
 for current_page in range(START_PAGE, END_PAGE + 1):
