@@ -64,7 +64,7 @@ uvmap_16 = LinearSegmentedColormap.from_list(
 #   "9"  = high mid-tone structure
 #   "12" = focused on bright stars and nebular cores
 #   "16" = maximum smooth dynamic range
-COLORMAP_CHOICE = "9"
+COLORMAP_CHOICE = "16"
 uvmap = {"9": uvmap_9, "12": uvmap_12, "16": uvmap_16}[COLORMAP_CHOICE]
 
 # ---------------------------------------
