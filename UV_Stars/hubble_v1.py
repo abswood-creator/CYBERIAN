@@ -48,9 +48,9 @@ uvmap_12 = LinearSegmentedColormap.from_list(
 
 # 16-color ultra-smooth palette
 colors_16 = [
-    "#FFFFFF", "#FEFDFF", "#FDFBFF", "#FCF9FF", "#FBF7FF", "#FAF5FF",
-    "#F9F3FF", "#F8F1FF", "#F7EEFF", "#F6ECFF", "#F5EAFF", "#F4E8FF",
-    "#F3E6FF", "#F2E4FF", "#F1E2FF", "#7F00FF"
+    "#7F00FF", "#FEFDFF", "#FDFBFF", "#7FFFFF", "#B9FFFF", "#0000FF",
+    "#3F00FF", "#CFCFCF", "#DFE5E5", "#003FFF", "#FFFFFF", "#7FFFFF",
+    "#F3E6FF", "#EFDFEF", "#7ADFF5", "#00FFFF"
 ]
 positions_16 = [
     0.00, 0.02, 0.05, 0.09, 0.14, 0.21, 0.30, 0.41,
